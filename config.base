@@ -12,14 +12,14 @@ export machine="HERA"
 export RUN_ENVIR="emc"
 
 # Account, queue, etc.
-export ACCOUNT="fv3-cpu"
+export ACCOUNT="rtrr"
 export QUEUE="batch"
 export QUEUE_SERVICE="batch"
 export PARTITION_BATCH="hera"
 export PARTITION_SERVICE="service"
 
 # Project to use in mass store:
-export HPSS_PROJECT="emc-global"
+export HPSS_PROJECT="wrfruc"
 
 # Directories relative to installation areas:
 export HOMEgfs=/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/arfs
@@ -46,13 +46,13 @@ export FIXugwd="${FIXgfs}/ugwd"
 export PACKAGEROOT="/scratch1/NCEPDEV/global/glopara/nwpara"    # TODO: set via prod_envir in Ops
 export COMROOT="/scratch1/NCEPDEV/global/glopara/com"    # TODO: set via prod_envir in Ops
 export COMINsyn="${COMROOT}/gfs/prod/syndat"
-export DMPDIR="/scratch1/NCEPDEV/global/glopara/dump"
+export DMPDIR="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/dump"
 export BASE_CPLIC="/scratch1/NCEPDEV/global/glopara/data/ICSDIR/prototype_ICs"
 
 # USER specific paths
-export HOMEDIR="/scratch1/NCEPDEV/global/${USER}"
-export STMP="/scratch1/NCEPDEV/stmp2/${USER}"
-export PTMP="/scratch1/NCEPDEV/stmp4/${USER}"
+export HOMEDIR="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/expdir/home"
+export STMP="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/comrot/stmp"
+export PTMP="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/comrot/ptmp"
 export NOSCRUB="$HOMEDIR"
 
 # Base directories for various builds
@@ -116,9 +116,9 @@ export BASE_JOB="${HOMEgfs}/jobs/rocoto"
 
 # EXPERIMENT specific environment parameters
 export SDATE=2023021918
-export EDATE=2023022006
+export EDATE=2023021920
 export EXP_WARM_START=".false."
-export assim_freq=6
+export assim_freq=1
 export PSLOT="hrly021918"
 export EXPDIR="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/expdir/${PSLOT}"
 export ROTDIR="/scratch2/BMC/wrfruc/Guoqing.Ge/ufs-ar/comrot/${PSLOT}"
@@ -130,7 +130,7 @@ fi
 export DATAROOT="${STMP}/RUNDIRS/${PSLOT}"  # TODO: set via prod_envir in Ops
 export RUNDIR="${DATAROOT}"  # TODO: Should be removed; use DATAROOT instead
 export ARCDIR="${NOSCRUB}/archive/${PSLOT}"
-export ATARDIR="/NCEPDEV/${HPSS_PROJECT}/1year/${USER}/${machine}/scratch/${PSLOT}"
+export ATARDIR="/ESRL/BMC/wrfruc/5year/ufsar/${PSLOT}"
 
 # Commonly defined parameters in JJOBS
 export envir=${envir:-"prod"}
@@ -293,7 +293,7 @@ export WRITE_DOPOST=".true." # WRITE_DOPOST=true, use inline POST
 export WRITE_NSFLIP=".true."
 
 # IAU related parameters
-export DOIAU="YES"        # Enable 4DIAU for control with 3 increments
+export DOIAU="NO"        # Enable 4DIAU for control with 3 increments
 export IAUFHRS="3,6,9"
 export IAU_FHROT=${IAUFHRS%%,*}
 export IAU_DELTHRS=6
